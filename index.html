@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Portfolio</title>
-<meta name="description" content="Personal portfolio — Network Engineering, IoT & Signal Processing, Graphic Design & Content Creation.">
+<title>Detty Savira Wardhani — Portfolio</title>
+<meta name="description" content="Detty Savira Wardhani — Network Engineering, IoT & Signal Processing, Graphic Design & Content Creation.">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  /* ===== EDIT ME: color tokens ===== */
+
   :root{
     --void: #17122B;
     --void-soft: #211A3D;
@@ -57,7 +56,7 @@
 
   .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
 
-  /* ===== Side signal nav (desktop) ===== */
+
   .signal-nav{
     position:fixed;
     left:24px; top:50%;
@@ -89,7 +88,7 @@
   .signal-nav a:hover .label,
   .signal-nav a.active .label{ opacity:1; transform:translateX(0); }
 
-  /* mobile top nav */
+
   .mobile-nav{
     display:none;
     position:fixed; top:0; left:0; right:0; z-index:50;
@@ -118,7 +117,7 @@
     section{ scroll-margin-top:60px; }
   }
 
-  /* ===== Hero ===== */
+
   .hero{
     background:var(--void);
     color:var(--cloud);
@@ -174,7 +173,7 @@
 
   .wave-box{ position:relative; }
 
-  /* ===== Section shells ===== */
+
   .section{ padding:90px 0; }
   .section-tag{
     font-size:12px;
@@ -187,8 +186,6 @@
   }
   .section .lede{ color:var(--muted); max-width:60ch; margin-bottom:50px; font-size:16px;}
 
-  /* ===== About / Signal Profile ===== */
-  .profile-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:0;
@@ -218,7 +215,6 @@
     .profile-col.tech{ border-right:none; border-bottom:1px solid rgba(23,18,43,.06); }
   }
 
-  /* ===== Skills ===== */
   .skill-groups{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
   .skill-card{
     background:#fff;
@@ -246,7 +242,6 @@
 
   @media (max-width:800px){ .skill-groups{ grid-template-columns:1fr; } }
 
-  /* ===== Work ===== */
   .work-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -269,7 +264,7 @@
 
   @media (max-width:800px){ .work-grid{ grid-template-columns:1fr; } }
 
-  /* ===== Contact ===== */
+
   .contact{ background:var(--void); color:var(--cloud); }
   .contact h2{ color:var(--cloud); }
   .contact .lede{ color:#CFC8E8; }
@@ -301,33 +296,129 @@
     color:#8880A6;
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    z-index:2;
+    pointer-events:none;
+    opacity:.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    pointer-events:none;
+    z-index:0;
+  }
+  .hero{ position:relative; }
+  #about, #work{ position:relative; overflow:hidden; }
+
+  .name-gradient{
+    background:linear-gradient(90deg, var(--cyan) 0%, var(--magenta) 55%, var(--amber) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .pill-row .pill:nth-child(3n+1){ border-color:rgba(0,210,198,.5); color:#8FEFE8; }
+  .pill-row .pill:nth-child(3n+2){ border-color:rgba(255,61,138,.5); color:#FFB6D5; }
+  .pill-row .pill:nth-child(3n+3){ border-color:rgba(255,182,39,.5); color:#FFDA9E; }
+
+  .btn-solid{
+    background:linear-gradient(90deg, var(--amber), #FF8A3D);
+    box-shadow:0 8px 24px rgba(255,182,39,.35);
+  }
+  .btn-solid:hover{ box-shadow:0 10px 28px rgba(255,182,39,.5); }
+  .btn-outline:hover{ background:rgba(0,210,198,.1); }
+
+  h2 .accent-underline{
+    display:block;
+    width:52px; height:5px;
+    border-radius:3px;
+    background:linear-gradient(90deg, var(--cyan), var(--magenta), var(--amber));
+    margin-bottom:18px;
+  }
+
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+ 
+  .work-card{ position:relative; z-index:1; }
+  .work-grid a:nth-of-type(4n+1):hover{ box-shadow:0 16px 34px rgba(0,210,198,.28); border-color:rgba(0,210,198,.4); }
+  .work-grid a:nth-of-type(4n+2):hover{ box-shadow:0 16px 34px rgba(255,61,138,.25); border-color:rgba(255,61,138,.35); }
+  .work-grid a:nth-of-type(4n+3):hover{ box-shadow:0 16px 34px rgba(255,182,39,.28); border-color:rgba(255,182,39,.4); }
+  .work-grid a:nth-of-type(4n+4):hover{ box-shadow:0 16px 34px rgba(0,210,198,.28); border-color:rgba(0,210,198,.4); }
+
+  .icon-row a:nth-of-type(4n+1):hover{ background:var(--cyan); border-color:var(--cyan); color:var(--void); }
+  .icon-row a:nth-of-type(4n+2):hover{ background:var(--magenta); border-color:var(--magenta); color:#fff; }
+  .icon-row a:nth-of-type(4n+3):hover{ background:linear-gradient(45deg,var(--magenta),var(--amber)); border-color:transparent; color:#fff; }
+  .icon-row a:nth-of-type(4n+4):hover{ background:var(--amber); border-color:var(--amber); color:var(--void); }
+  .icon-row a{ transform:scale(1); transition:all .2s ease, transform .2s ease; }
+  .icon-row a:hover{ transform:scale(1.1) rotate(-6deg); }
+
+
+  .timeline{ position:relative; padding-left:32px; }
+  .timeline::before{
+    content:"";
+    position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(180deg, var(--cyan), var(--magenta), var(--amber));
+  }
+  .timeline-item{ position:relative; padding-bottom:38px; }
+  .timeline-item:last-child{ padding-bottom:0; }
+  .timeline-item::before{
+    content:"";
+    position:absolute; left:-32px; top:5px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--cloud);
+    border:3px solid var(--cyan);
+  }
+  .timeline-item:nth-child(2)::before{ border-color:var(--magenta); }
+  .timeline-item:nth-child(3)::before{ border-color:var(--amber); }
+  .timeline-item .role{ font-size:18px; font-family:'Space Grotesk',sans-serif; font-weight:600; margin-bottom:4px; }
+  .timeline-item .meta{ font-size:13px; color:var(--muted); margin-bottom:10px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .timeline-item .meta .dot-sep{ width:4px; height:4px; border-radius:50%; background:var(--muted); }
+  .timeline-item p{ font-size:14.5px; color:var(--ink); margin:0; max-width:65ch; }
+  .timeline-item ul{ margin:0; padding-left:18px; max-width:68ch; }
+  .timeline-item ul li{ font-size:14.5px; color:var(--ink); margin-bottom:7px; }
+  .timeline-item .skill-line{ margin-top:12px; font-size:12px; color:var(--muted); }
+  .timeline-item .org-tag{
+    display:inline-block; font-size:11px; padding:2px 8px; border-radius:5px;
+    background:var(--magenta-tint); color:var(--magenta-deep); margin-left:6px;
+  }
 </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
 <nav class="signal-nav mono" id="sideNav">
   <a href="#about" data-color="cyan"><span class="dot"></span><span class="label">ABOUT</span></a>
-  <a href="#skills" data-color="magenta"><span class="dot"></span><span class="label">SKILLS</span></a>
-  <a href="#work" data-color="amber"><span class="dot"></span><span class="label">WORK</span></a>
-  <a href="#contact" data-color="cyan"><span class="dot"></span><span class="label">CONTACT</span></a>
+  <a href="#experience" data-color="magenta"><span class="dot"></span><span class="label">EXPERIENCE</span></a>
+  <a href="#skills" data-color="amber"><span class="dot"></span><span class="label">SKILLS</span></a>
+  <a href="#work" data-color="cyan"><span class="dot"></span><span class="label">WORK</span></a>
+  <a href="#contact" data-color="magenta"><span class="dot"></span><span class="label">CONTACT</span></a>
 </nav>
 
 <nav class="mobile-nav" id="mobileNav">
   <a href="#about">ABOUT</a>
+  <a href="#experience">EXPERIENCE</a>
   <a href="#skills">SKILLS</a>
   <a href="#work">WORK</a>
   <a href="#contact">CONTACT</a>
 </nav>
 
-<!-- ===== HERO ===== -->
+
 <header class="hero">
+  <div class="blob" style="width:340px;height:340px;top:-100px;right:-60px;background:var(--cyan);opacity:.28;"></div>
+  <div class="blob" style="width:260px;height:260px;bottom:-80px;left:-60px;background:var(--magenta);opacity:.22;"></div>
   <div class="wrap">
     <div>
-      <div class="eyebrow mono">STUDENT · ENGINEER · CREATOR</div>
-      <!-- EDIT: ganti dengan nama kamu -->
-      <h1>Your Name Here</h1>
-      <p class="tagline">I work on two frequencies — building networks and tinkering with IoT &amp; signal processing on one side, and designing visuals and content that make technical ideas easy to understand on the other.</p>
+      <div class="eyebrow mono">TELECOMMUNICATION ENGINEERING · TELKOM UNIVERSITY</div>
+      <h1><span class="name-gradient">Detty Savira Wardhani</span></h1>
+      <p class="tagline">Telecommunication Engineering student with a strong interest in Network Engineering, IoT, and Signal Processing — who also creates through photo &amp; video editing, graphic design, and content for social media. I believe these two worlds complement each other.</p>
       <div class="cta-row">
         <a href="#work" class="btn btn-solid">See My Work</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -379,25 +470,62 @@
   </div>
 </header>
 
-<!-- ===== ABOUT ===== -->
 <section class="section" id="about">
+  <div class="blob" style="width:300px;height:300px;top:20%;left:-100px;background:var(--amber);opacity:.12;"></div>
   <div class="wrap">
     <div class="section-tag mono" style="color:var(--cyan-deep)">// SIGNAL PROFILE</div>
-    <h2>Two channels, one signal.</h2>
+    <h2 class="reveal">Two channels, one signal.<span class="accent-underline"></span></h2>
     <p class="lede">A short look at how the technical and creative sides of my work connect — and why I think that combination fits an ambassador role well.</p>
 
-    <div class="profile-grid">
+    <div class="profile-grid reveal">
       <div class="profile-col tech">
         <span class="chan-label mono">CH.01 — TECHNICAL</span>
         <h3>Networks, IoT &amp; Signal Processing</h3>
-        <!-- EDIT: ceritakan pengalaman/ketertarikan teknis kamu -->
-        <p>I'm drawn to how information actually moves — from configuring networks and IoT devices, to understanding how signals are captured, processed, and turned into something useful. I enjoy the puzzle-solving side of making systems talk to each other reliably.</p>
+        <p>I'm a Telecommunication Engineering student at Telkom University with a strong interest in Network Engineering, IoT, and Signal Processing. One of the most meaningful projects I've been part of is Isyarasa, a sign language platform under Sankara — an experience that opened my eyes to how technology can help create better accessibility for everyone.</p>
       </div>
       <div class="profile-col creative">
         <span class="chan-label mono">CH.02 — CREATIVE</span>
         <h3>Graphic Design &amp; Content Creation</h3>
-        <!-- EDIT: ceritakan pengalaman/ketertarikan kreatif kamu -->
-        <p>On the other channel, I design visuals and create content — from branding to short-form videos — that make technical ideas approachable. I like translating complex systems into something people actually want to look at, read, or watch.</p>
+        <p>Beyond engineering, I enjoy expressing myself creatively — from photo &amp; video editing to graphic design and content creation for social media. I believe these two worlds complement each other: engineering taught me to think logically and systematically, while my creative side trained me to communicate visually and effectively.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:20px; padding:18px 24px; border-radius:12px; background:var(--cyan-tint); display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <span class="mono" style="font-size:11px; color:var(--cyan-deep); font-weight:600;">● OPEN TO</span>
+      <span style="font-size:14px; color:var(--ink);">Telecom/Tech internships · Content creation · Graphic design · Social media specialist roles</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience" style="background:var(--void-soft);">
+  <div class="wrap">
+    <div class="section-tag mono" style="color:var(--magenta)">// EXPERIENCE</div>
+    <h2 class="reveal" style="color:var(--cloud)">Where I've worked &amp; grown<span class="accent-underline"></span></h2>
+    <p class="lede" style="color:#CFC8E8">Roles and organizations that shaped both my technical and creative sides.</p>
+
+    <!-- EDIT: ganti isi timeline ini dengan pengalaman asli dari LinkedIn kamu (role, organisasi, tahun, deskripsi singkat) -->
+    <div class="timeline reveal" style="background:#fff; border-radius:16px; padding:36px;">
+      <div class="timeline-item">
+        <div class="role">Head of Creative <span class="org-tag mono">SANKARA</span></div>
+        <div class="meta mono">Part-time <span class="dot-sep"></span> Oct 2025 – Present · 11 mos <span class="dot-sep"></span> Bandung, Indonesia · Remote</div>
+        <ul>
+          <li>Led a team of graphic designers, writers, and marketers to launch a new branding campaign — a 30% increase in brand awareness and 15% increase in sales.</li>
+          <li>Built a new creative process for the department, raising efficiency by 20% and cutting project turnaround time by 10%.</li>
+          <li>Managed multiple large-scale projects at once, including a full website rebrand and a national advertising campaign.</li>
+          <li>Invited as a keynote speaker at a national marketing conference to share insights on successful advertising strategy.</li>
+        </ul>
+        <div class="skill-line mono">Graphic Design · Content Strategy +7 skills</div>
+      </div>
+      <div class="timeline-item">
+        <div class="role">Social Media Admin <span class="org-tag mono">SANKARA</span></div>
+        <div class="meta mono">Part-time <span class="dot-sep"></span> Oct 2025 – Present · 11 mos <span class="dot-sep"></span> Bandung, Indonesia · Remote</div>
+        <ul>
+          <li>Built a social media strategy that increased engagement by 40% within 6 months.</li>
+          <li>Grew the company's social following by 50% through targeted campaigns and influencer collaborations.</li>
+          <li>Created and managed a content calendar that lifted organic reach and website traffic by 25%.</li>
+          <li>Used analytics tools to monitor performance and turn it into data-driven insights for future campaigns.</li>
+        </ul>
+        <div class="skill-line mono">Pemasaran Media Sosial · Public Speaking +2 skills</div>
       </div>
     </div>
   </div>
@@ -407,10 +535,10 @@
 <section class="section" id="skills" style="background:var(--void-soft);">
   <div class="wrap">
     <div class="section-tag mono" style="color:var(--amber)">// SKILLSET</div>
-    <h2 style="color:var(--cloud)">Dual-channel skillset</h2>
+    <h2 class="reveal" style="color:var(--cloud)">Dual-channel skillset<span class="accent-underline"></span></h2>
     <p class="lede" style="color:#CFC8E8">Tools and areas I work with on both frequencies — technical and creative.</p>
 
-    <div class="skill-groups">
+    <div class="skill-groups reveal">
       <div class="skill-card">
         <h3><span class="swatch" style="background:var(--cyan)"></span> NET / IOT / SIGNAL</h3>
         <div class="tag-list">
@@ -439,17 +567,18 @@
 
 <!-- ===== WORK ===== -->
 <section class="section" id="work">
+  <div class="blob" style="width:280px;height:280px;bottom:-60px;right:-80px;background:var(--cyan);opacity:.12;"></div>
   <div class="wrap">
     <div class="section-tag mono" style="color:var(--magenta-deep)">// SELECTED WORK</div>
-    <h2>Things I've built &amp; made</h2>
+    <h2 class="reveal">Things I've built &amp; made<span class="accent-underline"></span></h2>
     <p class="lede">A mix of technical projects and creative work — replace these with your own.</p>
 
-    <div class="work-grid">
-      <!-- EDIT: ganti dengan project asli kamu -->
+    <div class="work-grid reveal">
+   
       <a href="#" class="work-card">
         <span class="tag cyan">IOT</span>
-        <h3>Smart Environment Monitor</h3>
-        <p>A sensor network for tracking temperature and air quality, with basic signal analysis on the collected data.</p>
+        <h3>Isyarasa</h3>
+        <p>A Website that can translate sign language to a voice and bahasa indonesia.</p>
       </a>
       <a href="#" class="work-card">
         <span class="tag cyan">NETWORK</span>
@@ -474,27 +603,30 @@
 <section class="section contact" id="contact">
   <div class="wrap">
     <div class="section-tag mono" style="color:var(--cyan)">// GET IN TOUCH</div>
-    <h2>Let's connect.</h2>
+    <h2 class="reveal">Let's connect.<span class="accent-underline"></span></h2>
     <p class="lede">Open to collaborations, ambassador opportunities, and anything in between.</p>
 
     <!-- EDIT: ganti dengan email kamu -->
-    <a href="mailto:youremail@example.com" class="contact-email">youremail@example.com</a>
+    <a href="mailto:dettyswardhani@gmail.com" class="contact-email">dettyswardhani@gmail.com</a>
 
-    <div class="icon-row">
-      <!-- EDIT: ganti href dengan link kamu -->
-      <a href="https://github.com/yourusername" aria-label="GitHub" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-      </a>
-      <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn" target="_blank" rel="noopener">
+    <div class="icon-row reveal">
+      <a href="https://www.linkedin.com/in/detty-s-076241296" aria-label="LinkedIn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><path d="M12 16v-3.2c0-1.5 1-2.3 2.2-2.3 1.2 0 1.8.9 1.8 2.3V16"/></svg>
       </a>
-      <a href="https://instagram.com/yourusername" aria-label="Instagram" target="_blank" rel="noopener">
+      <a href="https://www.instagram.com/derawrrrr_/" aria-label="Instagram" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@callmederaa_" aria-label="TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v10.5a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/><path d="M14 3c0 2.4 1.8 4.3 4 4.5"/></svg>
+      </a>
+    
+      <a href="https://github.com/yourusername" aria-label="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
       </a>
     </div>
 
     <footer class="mono">
-      <span>© 2026 Your Name</span>
+      <span>© 2026 Detty Savira Wardhani</span>
       <span>Built with curiosity &amp; a bit of signal noise.</span>
     </footer>
   </div>
@@ -509,7 +641,7 @@
 </style>
 
 <script>
-  // scroll-spy for nav
+  
   const sections = document.querySelectorAll('section[id]');
   const sideLinks = document.querySelectorAll('#sideNav a');
   const mobileLinks = document.querySelectorAll('#mobileNav a');
@@ -526,6 +658,18 @@
   }, { rootMargin: '-40% 0px -50% 0px' });
 
   sections.forEach(sec => observer.observe(sec));
+
+
+  const revealObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
